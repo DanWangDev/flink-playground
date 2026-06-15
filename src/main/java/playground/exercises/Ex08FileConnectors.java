@@ -21,9 +21,10 @@ public class Ex08FileConnectors extends ExerciseRunner {
 
     @Override
     public List<?> run(StreamExecutionEnvironment env) throws Exception {
-        // Write to temp directory (writable in both Docker and local)
-        File tmpDir = new File(System.getProperty("java.io.tmpdir"));
-        File inputFile = new File(tmpDir, "ex08-input.txt");
+        // Write to data/ directory (mounted in Docker, made writable by CI)
+        File dataDir = new File("data");
+        if (!dataDir.exists()) dataDir.mkdirs();
+        File inputFile = new File(dataDir, "ex08-input.txt");
         if (inputFile.exists()) inputFile.delete();
         try (FileWriter w = new FileWriter(inputFile)) {
             w.write("record-alpha\nrecord-beta\nrecord-gamma\n");
