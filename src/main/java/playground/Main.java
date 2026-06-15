@@ -43,7 +43,8 @@ public class Main {
         Map.entry("14", "playground.exercises.Ex14ProductionPatterns"),
         Map.entry("15", "playground.exercises.Ex15AsyncIO"),
         Map.entry("16", "playground.exercises.Ex16StreamJoins"),
-        Map.entry("17", "playground.exercises.Ex17Jdbc")
+        Map.entry("17", "playground.exercises.Ex17Jdbc"),
+        Map.entry("18", "playground.exercises.Ex18WindowTVFs")
     );
 
     public static void main(String[] args) throws Exception {
