@@ -70,4 +70,4 @@ DataStream<Event> lateStream = result.getSideOutput(lateTag);
 
 4. **Testing event time** — Use fixed timestamps and bounded data for deterministic tests. Avoid `System.currentTimeMillis()`.
 
-5. **Flink 2.0** — Use `Duration.ofSeconds()` for watermark delay, not `Time.seconds()`.
+5. **Watermark delay** — Use `Duration.ofSeconds()` for watermark delay, not `Time.seconds()`.

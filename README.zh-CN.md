@@ -108,7 +108,7 @@ flink-playground/
 ├── .github/workflows/ci.yml          # CI：MiniCluster 测试 + Docker 集成
 ├── docker-compose.yml                # Flink jobmanager + taskmanager + Kafka
 ├── mvnw / mvnw.cmd                   # Maven wrapper（无需全局安装）
-├── pom.xml                           # 单模块 Maven，Flink 2.0
+├── pom.xml                           # 单模块 Maven，Flink 2.2
 ├── Makefile                          # 15+ 便捷命令
 ├── README.md / README.zh-CN.md
 ├── .env.example / .gitignore
@@ -149,7 +149,7 @@ flink-playground/
 
 ## 设计决策
 
-1. **Java 21 + Flink 2.0** — Java 21 是最新 LTS 版本。Flink 2.0 提供最新的 DataStream API 及统一的 Sink/SinkWriter 接口。
+1. **Java 21 + Flink 2.2** — Java 21 是最新 LTS 版本。Flink 2.2 提供最新的稳定 DataStream API 及统一的 Sink/SinkWriter 接口。
 2. **双运行模式** — `--local` 使用进程内 MiniCluster（快速，无需 Docker）；默认使用 Docker Compose 集群（真实 Flink）。
 3. **CollectingSink 模式** — 自定义 sink 将记录收集到 `List<T>` 中以进行确定性测试断言，无异步竞态问题。
 4. **有界流** — 所有练习使用有限数据集，以确保快速、可重复的结果。

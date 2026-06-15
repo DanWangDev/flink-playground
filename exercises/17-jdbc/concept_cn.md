@@ -10,7 +10,7 @@
 
 ## 为什么这很重要
 
-Flink 2.0 将 JDBC 移至 Table/SQL API。本练习演示了在 map 函数内进行直接 JDBC 集成 — 这是一种在 MiniCluster 和 Docker 环境中都能工作的实用数据库查询和丰富模式。
+Flink 2.x 将 JDBC 移至 Table/SQL API。本练习演示了在 map 函数内进行直接 JDBC 集成 — 这是一种在 MiniCluster 和 Docker 环境中都能工作的实用数据库查询和丰富模式。
 
 ---
 

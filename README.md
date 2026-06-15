@@ -108,7 +108,7 @@ flink-playground/
 ├── .github/workflows/ci.yml          # CI: MiniCluster tests + Docker integration
 ├── docker-compose.yml                # Flink jobmanager + taskmanager + Kafka
 ├── mvnw / mvnw.cmd                   # Maven wrapper (zero global installs)
-├── pom.xml                           # Single-module Maven, Flink 2.0
+├── pom.xml                           # Single-module Maven, Flink 2.2
 ├── Makefile                          # 15+ convenience targets
 ├── README.md / README.zh-CN.md
 ├── .env.example / .gitignore
@@ -149,7 +149,7 @@ flink-playground/
 
 ## Design Decisions
 
-1. **Java 21 + Flink 2.0** — Java 21 is the latest LTS. Flink 2.0 provides the latest DataStream API with the new unified Sink/SinkWriter interface.
+1. **Java 21 + Flink 2.2** — Java 21 is the latest LTS. Flink 2.2 provides the latest stable DataStream API with the unified Sink/SinkWriter interface.
 2. **Dual-run mode** — `--local` uses in-process MiniCluster (fast, no Docker); default uses Docker Compose cluster (real Flink).
 3. **CollectingSink pattern** — Custom sink collects records into a `List<T>` for deterministic test assertions. No flaky async checks.
 4. **Bounded streams** — All exercises use finite data for fast, reproducible results.

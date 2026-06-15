@@ -20,5 +20,5 @@ FROM orders WHERE amount > 100;
 ## 注意事项
 
 - 自定义 UDF 类需要 createTemporarySystemFunction 注册
-- Flink 2.0 UDF 注册在 MiniCluster 测试中可能敏感
+- Flink 2.x UDF 注册在 MiniCluster 测试中可能敏感
 - 内置函数始终可用且在不同环境中更具可移植性

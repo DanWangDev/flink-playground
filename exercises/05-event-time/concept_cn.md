@@ -68,4 +68,4 @@ DataStream<Event> lateStream = result.getSideOutput(lateTag);
 
 3. **测试事件时间** — 使用固定时间戳和有界数据进行确定性测试。避免使用 `System.currentTimeMillis()`。
 
-4. **Flink 2.0** — 使用 `Duration.ofSeconds()` 设置水位线延迟，而不是 `Time.seconds()`。
+4. **水位线延迟** — 使用 `Duration.ofSeconds()` 设置水位线延迟，而不是 `Time.seconds()`。
