@@ -2,7 +2,7 @@
 
 Apache Flink 动手学习环境，包含 24 个渐进式练习 — 从你的第一个 DataStream 作业到生产模式。
 
-基于 Java 21 和 Apache Flink 2.0 构建。可通过 Docker 本地运行，或使用 Flink MiniCluster 进程内运行。
+基于 Java 21 和 Apache Flink 2.2 构建。可通过 Docker 本地运行，或使用 Flink MiniCluster 进程内运行。
 
 [English](README.md)
 

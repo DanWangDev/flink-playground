@@ -1,6 +1,6 @@
 services:
   jobmanager:
-    image: flink:2.0-scala_2.12-java17
+    image: flink:2.2-scala_2.12-java17
     ports:
       - "8081:8081"
       - "6123:6123"
@@ -21,7 +21,7 @@ services:
       retries: 30
 
   taskmanager:
-    image: flink:2.0-scala_2.12-java17
+    image: flink:2.2-scala_2.12-java17
     depends_on:
       jobmanager:
         condition: service_healthy

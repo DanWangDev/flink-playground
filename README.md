@@ -2,7 +2,7 @@
 
 Hands-on Apache Flink learning environment with 24 progressive exercises — from your first DataStream job to production patterns.
 
-Built with Java 21 and Apache Flink 2.0. Runs locally with Docker or in-process with Flink MiniCluster.
+Built with Java 21 and Apache Flink 2.2. Runs locally with Docker or in-process with Flink MiniCluster.
 
 [中文版](README.zh-CN.md)
 
