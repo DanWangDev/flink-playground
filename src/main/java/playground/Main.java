@@ -34,7 +34,19 @@ public class Main {
         Map.entry("05", "playground.exercises.Ex05EventTime"),
         Map.entry("06", "playground.exercises.Ex06Checkpointing"),
         Map.entry("07", "playground.exercises.Ex07KafkaConnector"),
-        Map.entry("08", "playground.exercises.Ex08FileConnectors")
+        Map.entry("08", "playground.exercises.Ex08FileConnectors"),
+        Map.entry("09", "playground.exercises.Ex09TableApi"),
+        Map.entry("10", "playground.exercises.Ex10FlinkSql"),
+        Map.entry("11", "playground.exercises.Ex11ProcessFunction"),
+        Map.entry("12", "playground.exercises.Ex12CEP"),
+        Map.entry("13", "playground.exercises.Ex13BroadcastState"),
+        Map.entry("14", "playground.exercises.Ex14ProductionPatterns")
+        Map.entry("09", "playground.exercises.Ex09TableApi"),
+        Map.entry("10", "playground.exercises.Ex10FlinkSql"),
+        Map.entry("11", "playground.exercises.Ex11ProcessFunction"),
+        Map.entry("12", "playground.exercises.Ex12CEP"),
+        Map.entry("13", "playground.exercises.Ex13BroadcastState"),
+        Map.entry("14", "playground.exercises.Ex14ProductionPatterns")
     );
 
     public static void main(String[] args) throws Exception {
