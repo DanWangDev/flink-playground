@@ -1,6 +1,6 @@
 # Apache Flink Playground
 
-Hands-on Apache Flink learning environment with 14 progressive exercises — from your first DataStream job to production patterns.
+Hands-on Apache Flink learning environment with 24 progressive exercises — from your first DataStream job to production patterns.
 
 Built with Java 21 and Apache Flink 2.0. Runs locally with Docker or in-process with Flink MiniCluster.
 
@@ -64,7 +64,7 @@ docker compose exec -T jobmanager \
 
 ## Learning Path
 
-14 progressive modules. Each builds on the previous — start at 01 and work forward.
+24 progressive modules. Each builds on the previous — start at 01 and work forward.
 
 | # | Module | What You'll Learn |
 |---|--------|-------------------|
@@ -77,11 +77,21 @@ docker compose exec -T jobmanager \
 | 07 | **Kafka Connector** | KafkaSource, KafkaSink, serialization schemas, consumer groups |
 | 08 | **File Connectors** | FileSource, FileSink, CSV/JSON formats, bulk vs streaming reads |
 | 09 | **Table API** | TableEnvironment, stream-to-table conversion, changelog streams |
-| 10 | **Flink SQL** | DDL, window aggregations (TUMBLE/HOP/SESSION), temporal joins, UDF |
+| 10 | **Flink SQL** | DDL, window aggregations, temporal joins, built-in SQL functions |
 | 11 | **ProcessFunction** | KeyedProcessFunction, timers, Context API, side outputs |
 | 12 | **CEP** | Pattern API, begin/next/followedBy, within(), timeout handling |
 | 13 | **Broadcast State** | BroadcastStream, BroadcastProcessFunction, dynamic rule application |
 | 14 | **Production Patterns** | Savepoints, rescaling, metrics (Counter/Gauge/Meter), backpressure |
+| 15 | **Async I/O** | AsyncDataStream, unorderedWait, CompletableFuture, external service calls |
+| 16 | **Stream Joins** | Interval join, window join, multi-stream correlation |
+| 17 | **JDBC Connector** | H2 in-memory database, enrichment via JDBC lookups |
+| 18 | **Window TVFs** | TUMBLE table function in SQL, window aggregations |
+| 19 | **UDF** | User-defined functions with built-in SQL for data transformation |
+| 20 | **File Formats** | CSV reading, JSON formatting, FileSink with rolling policies |
+| 21 | **Global Windows** | GlobalWindow with CountTrigger and PurgingTrigger |
+| 22 | **Restart Strategies** | Stateful processing with configurable restart behavior |
+| 23 | **Savepoints** | Running totals across savepoints, state persistence |
+| 24 | **Processing Time** | Processing-time vs event-time semantics, timestamp comparison |
 
 Each module includes:
 - **`concept.md`** — English concept documentation with diagrams and gotchas
