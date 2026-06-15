@@ -1,6 +1,6 @@
 # Apache Flink 练习场
 
-Apache Flink 动手学习环境，包含 14 个渐进式练习 — 从你的第一个 DataStream 作业到生产模式。
+Apache Flink 动手学习环境，包含 24 个渐进式练习 — 从你的第一个 DataStream 作业到生产模式。
 
 基于 Java 21 和 Apache Flink 2.0 构建。可通过 Docker 本地运行，或使用 Flink MiniCluster 进程内运行。
 
@@ -64,7 +64,7 @@ docker compose exec -T jobmanager \
 
 ## 学习路径
 
-14 个渐进式模块。每个模块都建立在之前的基础上 — 从 01 开始，逐步推进。
+24 个渐进式模块。每个模块都建立在之前的基础上 — 从 01 开始，逐步推进。
 
 | # | 模块 | 你将学到 |
 |---|------|----------|
@@ -77,11 +77,21 @@ docker compose exec -T jobmanager \
 | 07 | **Kafka 连接器** | KafkaSource、KafkaSink、序列化模式、消费者组 |
 | 08 | **文件连接器** | FileSource、FileSink、CSV/JSON 格式、批量 vs 流式读取 |
 | 09 | **Table API** | TableEnvironment、流表转换、变更日志流 |
-| 10 | **Flink SQL** | DDL、窗口聚合（TUMBLE/HOP/SESSION）、时间连接、UDF |
+| 10 | **Flink SQL** | DDL、窗口聚合、时间连接、内置 SQL 函数 |
 | 11 | **ProcessFunction** | KeyedProcessFunction、定时器、Context API、侧输出 |
 | 12 | **CEP** | Pattern API、begin/next/followedBy、within()、超时处理 |
 | 13 | **广播状态** | BroadcastStream、BroadcastProcessFunction、动态规则应用 |
 | 14 | **生产模式** | Savepoints、扩缩容、指标（Counter/Gauge/Meter）、背压 |
+| 15 | **异步 I/O** | AsyncDataStream、unorderedWait、CompletableFuture、外部服务调用 |
+| 16 | **流连接** | 区间连接、窗口连接、多流关联 |
+| 17 | **JDBC 连接器** | H2 内存数据库、通过 JDBC 查询进行数据丰富 |
+| 18 | **窗口 TVF** | SQL 中的 TUMBLE 表函数、窗口聚合 |
+| 19 | **UDF** | 使用内置 SQL 函数进行数据转换 |
+| 20 | **文件格式** | CSV 读取、JSON 格式化、带滚动策略的 FileSink |
+| 21 | **全局窗口** | GlobalWindow 配合 CountTrigger 和 PurgingTrigger |
+| 22 | **重启策略** | 可配置重启行为的有状态处理 |
+| 23 | **保存点** | 跨保存点的运行总计、状态持久化 |
+| 24 | **处理时间** | 处理时间与事件时间语义对比、时间戳比较 |
 
 每个模块包含：
 - **`concept.md`** — 英文概念文档，包含图表和常见陷阱
