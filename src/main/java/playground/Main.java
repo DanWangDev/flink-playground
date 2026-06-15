@@ -33,7 +33,8 @@ public class Main {
         Map.entry("04", "playground.exercises.Ex04Windows"),
         Map.entry("05", "playground.exercises.Ex05EventTime"),
         Map.entry("06", "playground.exercises.Ex06Checkpointing"),
-        Map.entry("07", "playground.exercises.Ex07KafkaConnector")
+        Map.entry("07", "playground.exercises.Ex07KafkaConnector"),
+        Map.entry("08", "playground.exercises.Ex08FileConnectors")
     );
 
     public static void main(String[] args) throws Exception {
