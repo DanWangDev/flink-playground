@@ -3,6 +3,7 @@ package playground.shared;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -11,7 +12,7 @@ import java.util.List;
  * <p>Each exercise extends this and implements the run method.
  * Pattern mirrors kubernetes-playground exercises and dynamodb-playground exercises.</p>
  */
-public abstract class ExerciseRunner {
+public abstract class ExerciseRunner implements Serializable {
 
     protected final String id;
     protected final String title;
