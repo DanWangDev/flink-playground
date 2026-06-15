@@ -25,7 +25,7 @@ public class Ex08FileConnectors extends ExerciseRunner {
         // Write input to data/ directory (mounted in Docker)
         File dataDir = new File("data");
         if (!dataDir.exists()) dataDir.mkdirs();
-        File inputFile = new File(dataDir, "ex08-input.txt");
+        File inputFile = new File(dataDir, "ex08-input-" + System.currentTimeMillis() + ".txt");
         try (FileWriter w = new FileWriter(inputFile)) {
             w.write("record-alpha\nrecord-beta\nrecord-gamma\n");
         }
