@@ -180,17 +180,26 @@ flink-playground/
 | DataStream API | 01, 02 |
 | 键控状态 | 02, 03 |
 | 状态后端 | 03, 06 |
-| 窗口 | 04 |
-| 事件时间 / 水位线 | 05 |
-| 检查点 | 06 |
+| 窗口 | 04, 18, 21 |
+| 事件时间 / 水位线 | 05, 24 |
+| 检查点 | 06, 23 |
 | Kafka 数据源/数据汇 | 07 |
-| 文件 I/O | 08 |
+| 文件 I/O | 08, 20 |
 | Table API | 09 |
-| Flink SQL | 10 |
-| ProcessFunction | 11 |
+| Flink SQL | 10, 18 |
+| ProcessFunction | 11, 24 |
 | CEP 模式 | 12 |
 | 广播状态 | 13 |
-| Savepoints 与指标 | 14 |
+| Savepoints 与指标 | 14, 23 |
+| 异步 I/O | 15 |
+| 流连接 | 16 |
+| JDBC 丰富 | 17 |
+| SQL 窗口 TVF | 18 |
+| 内置 SQL UDF | 19 |
+| JSON/CSV 格式 | 20 |
+| 全局窗口与触发器 | 21 |
+| 重启策略 | 22 |
+| 处理时间语义 | 24 |
 
 ---
 

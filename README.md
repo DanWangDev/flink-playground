@@ -180,17 +180,26 @@ Both must be green before merge.
 | DataStream API | 01, 02 |
 | Keyed state | 02, 03 |
 | State backends | 03, 06 |
-| Windowing | 04 |
-| Event time / watermarks | 05 |
-| Checkpointing | 06 |
+| Windowing | 04, 18, 21 |
+| Event time / watermarks | 05, 24 |
+| Checkpointing | 06, 23 |
 | Kafka source/sink | 07 |
-| File I/O | 08 |
+| File I/O | 08, 20 |
 | Table API | 09 |
-| Flink SQL | 10 |
-| ProcessFunction | 11 |
+| Flink SQL | 10, 18 |
+| ProcessFunction | 11, 24 |
 | CEP patterns | 12 |
 | Broadcast state | 13 |
-| Savepoints & metrics | 14 |
+| Savepoints & metrics | 14, 23 |
+| Async I/O | 15 |
+| Stream joins | 16 |
+| JDBC enrichment | 17 |
+| SQL window TVFs | 18 |
+| Built-in SQL UDFs | 19 |
+| JSON/CSV formats | 20 |
+| Global windows & triggers | 21 |
+| Restart strategies | 22 |
+| Processing time semantics | 24 |
 
 ---
 
