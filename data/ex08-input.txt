@@ -1,3 +1,0 @@
-record-alpha
-record-beta
-record-gamma

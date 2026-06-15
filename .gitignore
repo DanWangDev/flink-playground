@@ -24,8 +24,11 @@ logs/
 # Checkpoint data (local)
 checkpoints/
 
-# Docker volumes
+# Docker volumes and runtime data
 data/kafka/
+data/*.txt
+data/*.csv
+data/ex20-output/
 
 # Coverage
 *.exec
