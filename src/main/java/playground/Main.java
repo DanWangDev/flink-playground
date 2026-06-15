@@ -41,7 +41,8 @@ public class Main {
         Map.entry("12", "playground.exercises.Ex12CEP"),
         Map.entry("13", "playground.exercises.Ex13BroadcastState"),
         Map.entry("14", "playground.exercises.Ex14ProductionPatterns"),
-        Map.entry("15", "playground.exercises.Ex15AsyncIO")
+        Map.entry("15", "playground.exercises.Ex15AsyncIO"),
+        Map.entry("16", "playground.exercises.Ex16StreamJoins")
     );
 
     public static void main(String[] args) throws Exception {
