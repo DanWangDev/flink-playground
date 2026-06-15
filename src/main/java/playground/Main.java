@@ -44,7 +44,13 @@ public class Main {
         Map.entry("15", "playground.exercises.Ex15AsyncIO"),
         Map.entry("16", "playground.exercises.Ex16StreamJoins"),
         Map.entry("17", "playground.exercises.Ex17Jdbc"),
-        Map.entry("18", "playground.exercises.Ex18WindowTVFs")
+        Map.entry("18", "playground.exercises.Ex18WindowTVFs"),
+        Map.entry("19", "playground.exercises.Ex19UDF"),
+        Map.entry("20", "playground.exercises.Ex20FileFormats"),
+        Map.entry("21", "playground.exercises.Ex21GlobalWindows"),
+        Map.entry("22", "playground.exercises.Ex22RestartStrategies"),
+        Map.entry("23", "playground.exercises.Ex23Savepoints"),
+        Map.entry("24", "playground.exercises.Ex24ProcessingTime")
     );
 
     public static void main(String[] args) throws Exception {
