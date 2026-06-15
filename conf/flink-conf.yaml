@@ -1,0 +1,23 @@
+# Flink Playground Configuration
+# Overrides the default flink-conf.yaml in the Docker image
+
+parallelism.default: 1
+taskmanager.numberOfTaskSlots: 2
+
+# State backend
+state.backend.type: hashmap
+state.checkpoints.dir: file:///opt/flink/checkpoints
+
+# Checkpointing
+execution.checkpointing.interval: 10s
+execution.checkpointing.mode: EXACTLY_ONCE
+execution.checkpointing.timeout: 60s
+
+# Restart strategy
+restart-strategy.type: fixed-delay
+restart-strategy.fixed-delay.attempts: 3
+restart-strategy.fixed-delay.delay: 10s
+
+# Web UI
+rest.port: 8081
+rest.address: 0.0.0.0

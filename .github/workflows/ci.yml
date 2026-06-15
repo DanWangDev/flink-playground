@@ -1,0 +1,113 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  JAVA_HOME: /usr/lib/jvm/java-21-openjdk-amd64
+
+jobs:
+  # ── Fast lane: Compile + MiniCluster tests (no Docker) ──
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: ["17", "21"]
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK ${{ matrix.java }}
+        uses: actions/setup-java@v4
+        with:
+          java-version: ${{ matrix.java }}
+          distribution: temurin
+          cache: maven
+
+      - name: Compile
+        run: ./mvnw compile -B -q
+
+      - name: Run MiniCluster tests
+        run: ./mvnw test -B
+
+      - name: Generate coverage report
+        if: matrix.java == '21'
+        run: ./mvnw jacoco:report -B
+
+      - name: Upload coverage to Codecov
+        if: matrix.java == '21'
+        uses: codecov/codecov-action@v5
+        with:
+          files: target/site/jacoco/jacoco.xml
+          fail_ci_if_error: false
+
+  # ── Integration lane: Docker Compose + real Flink cluster ──
+  integration:
+    runs-on: ubuntu-latest
+    needs: [test]
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: "21"
+          distribution: temurin
+          cache: maven
+
+      - name: Start Flink cluster
+        run: |
+          docker compose up -d
+          echo "Waiting for Flink jobmanager..."
+          for i in $(seq 1 60); do
+            if curl -s http://localhost:8081/overview | grep -q '"taskmanagers"'; then
+              echo "Flink jobmanager ready after ${i}s"
+              break
+            fi
+            sleep 2
+          done
+          curl -s http://localhost:8081/overview | jq .
+
+      - name: Build fat JAR
+        run: ./mvnw package -DskipTests -B
+
+      - name: Submit exercise JAR to Flink cluster
+        run: |
+          docker compose exec -T jobmanager mkdir -p /opt/flink/usrlib
+          docker cp target/flink-playground-1.0.0.jar flink-playground-jobmanager-1:/opt/flink/usrlib/
+
+      - name: Run all exercises on cluster
+        run: |
+          set -e
+          for i in $(seq -w 1 14); do
+            echo "::group::Exercise $i"
+            docker compose exec -T jobmanager \
+              flink run -c playground.Main \
+              /opt/flink/usrlib/flink-playground-1.0.0.jar \
+              --exercise "$i" --no-step || {
+                echo "::error::Exercise $i failed"
+                echo "::endgroup::"
+                exit 1
+              }
+            echo "::endgroup::"
+          done
+
+      - name: Collect cluster logs on failure
+        if: failure()
+        run: |
+          echo "::group::Flink JobManager Logs"
+          docker compose logs jobmanager --tail=200
+          echo "::endgroup::"
+          echo "::group::Flink TaskManager Logs"
+          docker compose logs taskmanager --tail=200
+          echo "::endgroup::"
+
+      - name: Tear down cluster
+        if: always()
+        run: docker compose down --volumes
