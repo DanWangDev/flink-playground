@@ -15,8 +15,7 @@ import java.util.List;
 
 public class Ex19UDF extends ExerciseRunner {
 
-    // Custom ScalarFunction: calculate tax
-    public static class TaxCalculator extends ScalarFunction {
+    public static class TaxCalc extends ScalarFunction {
         public double eval(double amount) { return Math.round(amount * 0.08 * 100.0) / 100.0; }
     }
 
@@ -27,10 +26,7 @@ public class Ex19UDF extends ExerciseRunner {
     @Override
     public List<?> run(StreamExecutionEnvironment env) throws Exception {
         StreamTableEnvironment tEnv = StreamTableEnvironment.create(env);
-
-        // Register UDF
-        tEnv.createTemporarySystemFunction("TAX", TaxCalculator.class);
-
+        tEnv.createTemporarySystemFunction("TAX", TaxCalc.class);
         DataStream<DataSources.OrderEvent> orders = DataSources.orders(env);
         tEnv.createTemporaryView("orders", orders,
             Schema.newBuilder()
@@ -38,16 +34,11 @@ public class Ex19UDF extends ExerciseRunner {
                 .column("customerId", DataTypes.STRING())
                 .column("amount", DataTypes.DOUBLE())
                 .build());
-
-        // SQL query using the UDF
         Table result = tEnv.sqlQuery(
-            "SELECT orderId, amount, TAX(amount) AS tax " +
-            "FROM orders WHERE amount > 100");
-
+            "SELECT orderId, amount, TAX(amount) AS tax FROM orders WHERE amount > 100");
         DataStream<Row> resultStream = tEnv.toChangelogStream(result);
         CollectingSink<Row> sink = new CollectingSink<>();
         resultStream.sinkTo(sink);
-
         env.execute("Exercise 19 — UDF");
         List<String> output = new ArrayList<>();
         sink.getValues().forEach(r -> output.add(r.toString()));
