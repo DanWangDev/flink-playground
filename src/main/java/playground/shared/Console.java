@@ -5,7 +5,9 @@ package playground.shared;
  * Mirrors the pattern from kubernetes-playground's pkg/logger/logger.go
  * and dynamodb-playground's shared/logger.ts.
  */
-public final class Console {
+import java.io.Serializable;
+
+public final class Console implements Serializable {
 
     private static final String RESET = "[0m";
     private static final String BOLD = "[1m";
