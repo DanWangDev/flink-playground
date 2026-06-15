@@ -36,11 +36,12 @@
             <version>${flink.version}</version>
         </dependency>
 
-        <!-- Flink Client (job submission) -->
+        <!-- Flink Client (provided by cluster) -->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-clients</artifactId>
             <version>${flink.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- Flink Kafka Connector -->
@@ -64,11 +65,12 @@
             <version>${flink.version}</version>
         </dependency>
 
-        <!-- Flink Table Planner (for SQL) -->
+        <!-- Flink Table Planner (provided by cluster) -->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-table-planner_2.12</artifactId>
             <version>${flink.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- Flink CEP -->
