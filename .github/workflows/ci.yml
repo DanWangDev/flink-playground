@@ -81,12 +81,15 @@ jobs:
         run: |
           docker compose exec -T jobmanager mkdir -p /opt/flink/usrlib
           docker cp target/flink-playground-1.0.0.jar flink-playground-jobmanager-1:/opt/flink/usrlib/
+          # Ensure data directory is writable inside Docker containers
+          chmod -R 777 data/ 2>/dev/null || true
+          mkdir -p data/
 
       - name: Run all exercises on cluster
         run: |
           set -e
           # Run exercises 1 to N (increment as exercises are added)
-          for i in $(seq -w 1 18); do
+          for i in $(seq -w 1 24); do
             echo "::group::Exercise $i"
             docker compose exec -T jobmanager \
               flink run -c playground.Main \

@@ -67,4 +67,4 @@
 
 3. **窗口状态** — Flink 将所有事件存储在窗口状态中，直到窗口触发。大窗口 = 大状态。
 
-4. **Flink 2.0：使用 Duration，而非 Time** — 使用 `Duration.ofSeconds(n)` 代替已弃用的 `Time.seconds(n)`。
+4. **使用 Duration，而非 Time** — 使用 `Duration.ofSeconds(n)` 代替已移除的 `Time.seconds(n)`。

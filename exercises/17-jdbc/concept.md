@@ -10,7 +10,7 @@
 
 ## Why This Matters
 
-Flink 2.0 moved JDBC to the Table/SQL API. This exercise demonstrates direct JDBC integration within a map function — a practical pattern for database lookups and enrichment that works in both MiniCluster and Docker environments.
+Flink 2.x moved JDBC to the Table/SQL API. This exercise demonstrates direct JDBC integration within a map function — a practical pattern for database lookups and enrichment that works in both MiniCluster and Docker environments.
 
 ---
 

@@ -26,5 +26,5 @@ FROM orders WHERE amount > 100;
 ## Gotchas
 
 - Custom UDF classes need createTemporarySystemFunction registration
-- Flink 2.0 UDF registration can be sensitive in MiniCluster tests
+- Flink 2.x UDF registration can be sensitive in MiniCluster tests
 - Built-in functions are always available and more portable across environments

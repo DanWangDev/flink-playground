@@ -67,4 +67,4 @@ Gives access to window metadata:
 
 3. **Window state** — Flink stores all events in window state until the window fires. Large windows = large state.
 
-4. **Flink 2.0: Duration, not Time** — Use `Duration.ofSeconds(n)` instead of the deprecated `Time.seconds(n)`.
+4. **Duration, not Time** — Use `Duration.ofSeconds(n)` instead of the removed `Time.seconds(n)`.
