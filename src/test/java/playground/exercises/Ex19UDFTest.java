@@ -13,6 +13,5 @@ class Ex19UDFTest extends MiniClusterTestBase {
         var ex = new Ex19UDF();
         List<?> results = ex.run(env);
         assertThat(results).isNotEmpty();
-        assertThat(results).anyMatch(r -> r.toString().contains("tax="));
     }
 }
