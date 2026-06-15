@@ -29,7 +29,8 @@ public class Main {
     private static final Map<String, String> EXERCISE_REGISTRY = Map.ofEntries(
         Map.entry("01", "playground.exercises.Ex01FirstJob"),
         Map.entry("02", "playground.exercises.Ex02KeyedStreams"),
-        Map.entry("03", "playground.exercises.Ex03StateManagement")
+        Map.entry("03", "playground.exercises.Ex03StateManagement"),
+        Map.entry("04", "playground.exercises.Ex04Windows")
     );
 
     public static void main(String[] args) throws Exception {
