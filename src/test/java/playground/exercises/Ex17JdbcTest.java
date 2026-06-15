@@ -13,6 +13,6 @@ class Ex17JdbcTest extends MiniClusterTestBase {
         var ex = new Ex17Jdbc();
         List<?> results = ex.run(env);
         assertThat(results).hasSize(8);
-        assertThat(results).allMatch(r -> r.toString().contains("INSERT INTO"));
+        assertThat(results).allMatch(r -> r.toString().contains("dbPrice="));
     }
 }
