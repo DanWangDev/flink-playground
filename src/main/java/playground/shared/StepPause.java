@@ -3,13 +3,14 @@ package playground.shared;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 
 /**
  * Interactive step-by-step mode — pauses between operations.
  * Mirrors the pattern from kubernetes-playground's pkg/prompt/prompt.go
  * and dynamodb-playground's --step flag.
  */
-public final class StepPause {
+public final class StepPause implements Serializable {
 
     private final boolean enabled;
     private final BufferedReader reader;
