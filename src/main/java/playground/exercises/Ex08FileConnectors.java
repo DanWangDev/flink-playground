@@ -11,7 +11,6 @@ import playground.shared.ExerciseRunner;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.nio.file.Files;
 import java.util.List;
 
 public class Ex08FileConnectors extends ExerciseRunner {
@@ -22,10 +21,10 @@ public class Ex08FileConnectors extends ExerciseRunner {
 
     @Override
     public List<?> run(StreamExecutionEnvironment env) throws Exception {
-        // Write input to data/ directory (mounted in Docker)
-        File dataDir = new File("data");
-        if (!dataDir.exists()) dataDir.mkdirs();
-        File inputFile = new File(dataDir, "ex08-input-" + System.currentTimeMillis() + ".txt");
+        // Write to temp directory (writable in both Docker and local)
+        File tmpDir = new File(System.getProperty("java.io.tmpdir"));
+        File inputFile = new File(tmpDir, "ex08-input.txt");
+        if (inputFile.exists()) inputFile.delete();
         try (FileWriter w = new FileWriter(inputFile)) {
             w.write("record-alpha\nrecord-beta\nrecord-gamma\n");
         }
