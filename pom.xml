@@ -94,14 +94,7 @@
             <version>${flink.version}</version>
         </dependency>
 
-        <!-- Flink JDBC Connector (Ex17) -->
-        <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-connector-jdbc-core</artifactId>
-            <version>4.0.0-2.0</version>
-        </dependency>
-
-        <!-- H2 Database (Ex17) -->
+        <!-- H2 Database for Ex17 JDBC exercise -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
