@@ -13,6 +13,6 @@ class Ex24ProcessingTimeTest extends MiniClusterTestBase {
         var ex = new Ex24ProcessingTime();
         List<?> results = ex.run(env);
         assertThat(results).isNotEmpty();
-        assertThat(results).anyMatch(r -> r.toString().contains("PROC-TIME"));
+        assertThat(results).anyMatch(r -> r.toString().contains("processingTime="));
     }
 }
