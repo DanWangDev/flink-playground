@@ -27,7 +27,8 @@ public class Main {
 
     /** Registry of all exercises (id -> class name). Updated as modules are added. */
     private static final Map<String, String> EXERCISE_REGISTRY = Map.ofEntries(
-        Map.entry("01", "playground.exercises.Ex01FirstJob")
+        Map.entry("01", "playground.exercises.Ex01FirstJob"),
+        Map.entry("02", "playground.exercises.Ex02KeyedStreams")
     );
 
     public static void main(String[] args) throws Exception {
