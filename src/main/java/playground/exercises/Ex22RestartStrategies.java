@@ -21,12 +21,9 @@ public class Ex22RestartStrategies extends ExerciseRunner {
 
     @Override
     public List<?> run(StreamExecutionEnvironment env) throws Exception {
-        // Configure restart strategy via Configuration
-        org.apache.flink.configuration.Configuration config = new org.apache.flink.configuration.Configuration();
-        config.setString("restart-strategy.type", "fixed-delay");
-        config.setInteger("restart-strategy.fixed-delay.attempts", 3);
-        config.setString("restart-strategy.fixed-delay.delay", "1s");
-        env.configure(config);
+        // Restart strategies are configured at the cluster level (flink-conf.yaml)
+        // or via the Flink CLI. In code, state is the key to fault tolerance:
+        // checkpointing + state backend = automatic recovery.
 
         DataStream<DataSources.OrderEvent> orders = DataSources.orders(env);
         CollectingSink<String> sink = new CollectingSink<>();
