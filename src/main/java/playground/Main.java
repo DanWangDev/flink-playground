@@ -31,7 +31,8 @@ public class Main {
         Map.entry("02", "playground.exercises.Ex02KeyedStreams"),
         Map.entry("03", "playground.exercises.Ex03StateManagement"),
         Map.entry("04", "playground.exercises.Ex04Windows"),
-        Map.entry("05", "playground.exercises.Ex05EventTime")
+        Map.entry("05", "playground.exercises.Ex05EventTime"),
+        Map.entry("06", "playground.exercises.Ex06Checkpointing")
     );
 
     public static void main(String[] args) throws Exception {
