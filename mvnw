@@ -33,6 +33,7 @@ export MAVEN_OPTS
 
 # Execute the wrapper
 exec "$JAVACMD" \
+  -Dmaven.multiModuleProjectDirectory="$APP_HOME" \
   $MAVEN_OPTS \
   -classpath "$APP_HOME/.mvn/wrapper/maven-wrapper.jar" \
   org.apache.maven.wrapper.MavenWrapperMain \
