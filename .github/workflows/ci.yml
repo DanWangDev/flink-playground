@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 env:
-  JAVA_HOME: /usr/lib/jvm/java-21-openjdk-amd64
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   # ── Fast lane: Compile + MiniCluster tests (no Docker) ──
@@ -27,6 +27,9 @@ jobs:
           java-version: ${{ matrix.java }}
           distribution: temurin
           cache: maven
+
+      - name: Make mvnw executable
+        run: chmod +x mvnw
 
       - name: Compile
         run: ./mvnw compile -B -q
@@ -60,6 +63,9 @@ jobs:
           java-version: "21"
           distribution: temurin
           cache: maven
+
+      - name: Make mvnw executable
+        run: chmod +x mvnw
 
       - name: Start Flink cluster
         run: |
