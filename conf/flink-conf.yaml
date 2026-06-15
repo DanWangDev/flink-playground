@@ -4,14 +4,8 @@
 parallelism.default: 1
 taskmanager.numberOfTaskSlots: 2
 
-# State backend
+# State backend (checkpointing configured per-job in exercises that need it)
 state.backend.type: hashmap
-state.checkpoints.dir: file:///opt/flink/checkpoints
-
-# Checkpointing
-execution.checkpointing.interval: 10s
-execution.checkpointing.mode: EXACTLY_ONCE
-execution.checkpointing.timeout: 60s
 
 # Restart strategy
 restart-strategy.type: fixed-delay

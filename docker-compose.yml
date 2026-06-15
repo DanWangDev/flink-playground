@@ -11,12 +11,9 @@ services:
         parallelism.default: 1
         taskmanager.numberOfTaskSlots: 2
         state.backend.type: hashmap
-        state.checkpoints.dir: file:///opt/flink/checkpoints
-        execution.checkpointing.interval: 10s
     volumes:
       - ./data:/opt/flink/data
       - ./conf/flink-conf.yaml:/opt/flink/conf/flink-conf.yaml
-      - checkpoints:/opt/flink/checkpoints
     healthcheck:
       test: curl -s http://localhost:8081/overview | grep -q '"taskmanagers"'
       interval: 5s
@@ -54,6 +51,3 @@ services:
       interval: 5s
       timeout: 5s
       retries: 20
-
-volumes:
-  checkpoints:

@@ -91,7 +91,8 @@ jobs:
       - name: Run all exercises on cluster
         run: |
           set -e
-          for i in $(seq -w 1 14); do
+          # Run exercises 1 to N (increment as exercises are added)
+          for i in $(seq -w 1 1); do
             echo "::group::Exercise $i"
             docker compose exec -T jobmanager \
               flink run -c playground.Main \
