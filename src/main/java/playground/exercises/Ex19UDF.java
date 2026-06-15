@@ -13,11 +13,12 @@ import playground.shared.ExerciseRunner;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Ex19UDF extends ExerciseRunner {
+/** Standalone UDF class required for Flink reflection */
+class TaxCalc extends ScalarFunction {
+    public double eval(double amount) { return Math.round(amount * 0.08 * 100.0) / 100.0; }
+}
 
-    public static class TaxCalc extends ScalarFunction {
-        public double eval(double amount) { return Math.round(amount * 0.08 * 100.0) / 100.0; }
-    }
+public class Ex19UDF extends ExerciseRunner {
 
     public Ex19UDF() {
         super("19-udf", "User-Defined Functions (UDF)");
@@ -26,7 +27,7 @@ public class Ex19UDF extends ExerciseRunner {
     @Override
     public List<?> run(StreamExecutionEnvironment env) throws Exception {
         StreamTableEnvironment tEnv = StreamTableEnvironment.create(env);
-        tEnv.createTemporaryFunction("TAX", TaxCalc.class);
+        tEnv.createTemporarySystemFunction("TAX", TaxCalc.class);
         DataStream<DataSources.OrderEvent> orders = DataSources.orders(env);
         tEnv.createTemporaryView("orders", orders,
             Schema.newBuilder()
