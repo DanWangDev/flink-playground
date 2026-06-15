@@ -30,7 +30,8 @@ public class Main {
         Map.entry("01", "playground.exercises.Ex01FirstJob"),
         Map.entry("02", "playground.exercises.Ex02KeyedStreams"),
         Map.entry("03", "playground.exercises.Ex03StateManagement"),
-        Map.entry("04", "playground.exercises.Ex04Windows")
+        Map.entry("04", "playground.exercises.Ex04Windows"),
+        Map.entry("05", "playground.exercises.Ex05EventTime")
     );
 
     public static void main(String[] args) throws Exception {
