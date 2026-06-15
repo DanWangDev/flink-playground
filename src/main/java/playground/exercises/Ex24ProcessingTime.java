@@ -26,7 +26,7 @@ public class Ex24ProcessingTime extends ExerciseRunner {
         DataStream<DataSources.OrderEvent> orders = DataSources.orders(env);
         CollectingSink<String> procSink = new CollectingSink<>();
         orders.keyBy(DataSources.OrderEvent::customerId)
-            .window(TumblingProcessingTimeWindows.of(Duration.ofSeconds(1)))
+            .window(TumblingProcessingTimeWindows.of(Duration.ofMillis(100)))
             .process(new ProcessWindowFunction<DataSources.OrderEvent, String,
                          String, TimeWindow>() {
                 @Override
