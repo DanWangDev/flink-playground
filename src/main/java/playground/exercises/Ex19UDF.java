@@ -26,7 +26,7 @@ public class Ex19UDF extends ExerciseRunner {
     @Override
     public List<?> run(StreamExecutionEnvironment env) throws Exception {
         StreamTableEnvironment tEnv = StreamTableEnvironment.create(env);
-        tEnv.createTemporarySystemFunction("TAX", TaxCalc.class);
+        tEnv.createTemporaryFunction("TAX", TaxCalc.class);
         DataStream<DataSources.OrderEvent> orders = DataSources.orders(env);
         tEnv.createTemporaryView("orders", orders,
             Schema.newBuilder()
