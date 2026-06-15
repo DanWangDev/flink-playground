@@ -21,26 +21,21 @@ public class Ex18WindowTVFs extends ExerciseRunner {
     @Override
     public List<?> run(StreamExecutionEnvironment env) throws Exception {
         StreamTableEnvironment tEnv = StreamTableEnvironment.create(env);
-
         DataStream<DataSources.OrderEvent> orders = DataSources.orders(env);
-        tEnv.createTemporaryView("orders", orders,
-            Schema.newBuilder()
-                .column("orderId", DataTypes.STRING())
-                .column("customerId", DataTypes.STRING())
-                .column("amount", DataTypes.DOUBLE())
-                .column("ts", DataTypes.BIGINT())
-                .watermark("ts", "ts - INTERVAL '5' SECOND")
-                .build());
-
-        // TUMBLE: fixed-size, non-overlapping windows
-        Table tumbleResult = tEnv.sqlQuery(
-            "SELECT window_start, window_end, customerId, " +
-            "SUM(amount) AS total FROM TABLE(TUMBLE(TABLE orders, DESCRIPTOR(ts), INTERVAL '10' SECONDS)) " +
-            "GROUP BY window_start, window_end, customerId");
-        DataStream<Row> tumbleStream = tEnv.toChangelogStream(tumbleResult);
+        Table t = tEnv.fromDataStream(orders, Schema.newBuilder()
+            .column("orderId", DataTypes.STRING())
+            .column("customerId", DataTypes.STRING())
+            .column("amount", DataTypes.DOUBLE())
+            .columnByExpression("proctime", "PROCTIME()")
+            .build());
+        tEnv.createTemporaryView("orders", t);
+        Table result = tEnv.sqlQuery(
+            "SELECT window_start, customerId, SUM(amount) AS total " +
+            "FROM TABLE(TUMBLE(TABLE orders, DESCRIPTOR(proctime), INTERVAL '10' SECONDS)) " +
+            "GROUP BY window_start, customerId");
+        DataStream<Row> resultStream = tEnv.toChangelogStream(result);
         CollectingSink<Row> sink = new CollectingSink<>();
-        tumbleStream.sinkTo(sink);
-
+        resultStream.sinkTo(sink);
         env.execute("Exercise 18 — Window TVFs");
         List<String> output = new ArrayList<>();
         sink.getValues().forEach(r -> output.add(r.toString()));
